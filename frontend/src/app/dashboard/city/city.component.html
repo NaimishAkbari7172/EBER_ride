@@ -1,0 +1,83 @@
+<div class="parentFormContainer">
+    <div id="formContainer">
+        <form [formGroup]="cityForm">
+            <select name="country" #country formControlName="countryname" (change)="onSelected(country.value)">
+                <option value>Select country </option>
+                <option *ngFor="let country of countryData " [value]="country._id">{{country.countryName}}</option>
+            </select>
+            <input #searchElementRef id="inputCity" placeholder="Enter city name" formControlName="cityname">
+            <button *ngIf="isaddbutton" (click)="checkZone_AddCity()">Add City</button>
+            <button *ngIf="isupdatebutton" (click)="updateCity()">Update City</button>
+        </form>
+    </div>
+</div>
+
+<!-- <div class="p-4"> -->
+<div class="rounded" id="map">
+    <!-- <google-map id="map" height="400px" width="100%"/> -->
+</div>
+<!-- </div> -->
+
+<!-- ----------------------------SHOW DATA PER PAGE------------------------------------ -->
+<div class="d-flex justify-content-center align-items-center">
+    <label for="pageSize">Show Data :</label>
+    <div class="custom-select">
+
+        <select class="m-2" id="pageSize" [(ngModel)]="limit" (change)="onPageSizeChange($event)">
+            <option value="5">Select Page</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+    </div>
+</div>
+
+<!-- --------------------TABLE CONTAINER-------------------- -->
+<div class="parenttableContainer">
+    <div id="tableContainer">
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Country</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let city of cityData | paginate: { itemsPerPage: limit, currentPage: currentPage, totalItems: count}; let i = index">
+                        <td>{{ city.countryDetails.countryName }}</td>
+                        <td>{{ city.city }}</td>
+                        <td>
+                            <button id="updatebtn" (click)="editbtn(city._id, city)">
+                                <mat-icon>edit</mat-icon></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- ---------------------------------------------PAGINATION USING NGX-------------------------------------------- ----- -->
+<div class="d-flex justify-content-center">
+    <div class="pagination d-flex justify-content-center" id="parentpagination">
+        <div class="pagination table-responsive rounded">
+            <button class="page-link" [disabled]="currentPage === 1" (click)="onPageChange(currentPage - 1)">
+                <i class="fa fa-angle-double-left" aria-hidden="true"></i> Previous
+            </button>
+            <ng-container *ngFor="let page of getPagesArray()">
+                <button class="page-link" [class.active]="page === currentPage" (click)="onPageChange(page)">
+                    {{ page }}
+                </button>
+            </ng-container>
+            <button class="page-link" [disabled]="currentPage === totalPages"
+                (click)="onPageChange(currentPage + 1)">
+                Next <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>

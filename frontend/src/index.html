@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Frontend</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="frontend/src/assets/icons/taxi.svg"
+    />
+
+    <!-- toastr -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">  -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAwc3hBT0eR1TX3vqmrc6eaJ5WVBAIIlYE&loading=async&libraries=drawing,places,geometry,visualization,distance'></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&amp;&amp;v=beta&amp;loading=async&amp;libraries=drawing,places,geometry,visualization"></script>
+    <!-- &libraries=drawing,places,geometry,visualization,distance -->
+    <script src="https://js.stripe.com/v3/"></script>
+
+    <style>
+      #map {
+        height: 400px;
+      }
+    </style>
+
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#1976d2" />
+  </head>
+  <body class="mat-typography">
+    <app-root></app-root>
+
+    <!-- toastr -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> -->
+    <noscript
+      >Please enable JavaScript to continue using this application.</noscript
+    >
+  </body>
+</html>
+
+<!-- npm i ngx-toastr -->
+<!-- if using Saas then in style.css @import '~ngx-toastr/toastr';  -->
+<!-- or in css "styles": [
+  "styles.css",
+  "node_modules/ngx-toastr/toastr.css" 
+] -->
+<!-- import BrowserAnimationsModule,
+    ToastrModule.forRoot(), in app.module  -->
+<!--toastr service  -->
+
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwc3hBT0eR1TX3vqmrc6eaJ5WVBAIIlYE&libraries=places&callback=initMap"></script> -->
